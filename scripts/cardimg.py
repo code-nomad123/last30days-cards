@@ -541,8 +541,9 @@ def main() -> int:
         print(f"解析失败: {e}", file=sys.stderr)
         return 1
     if not cards:
+        # 过滤后无剩不是错误：来源本来就没数据、或 --exclude / --min-score 挡光了，都是正常情况。
         print("没有可渲染的卡片", file=sys.stderr)
-        return 2
+        return 0
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     render(report, cards, args.out, with_images=args.images)

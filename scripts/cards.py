@@ -347,8 +347,9 @@ def main() -> int:
 
     cards = build_cards(report, args.top, args.source)
     if not cards:
+        # 过滤后无剩不是错误：来源本来就没数据是很正常的情况，退出码保持 0。
         print("没有可渲染的卡片（clusters 为空或来源过滤后无剩）", file=sys.stderr)
-        return 2
+        return 0
 
     if args.json:
         print(json.dumps(cards, ensure_ascii=False, indent=2))

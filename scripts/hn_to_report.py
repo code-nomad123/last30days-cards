@@ -84,9 +84,10 @@ def main():
     hits = hits[:args.top]
 
     if not hits:
+        # 查询成功但没有符合条件的故事，不是错误。
         print(f"没有满足 points>{args.min_points} 的故事，调低 --min-points 试试",
               file=sys.stderr)
-        return 2
+        return 0
 
     items, cands, clusters = [], [], []
     for i, h in enumerate(hits):
