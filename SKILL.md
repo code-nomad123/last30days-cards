@@ -1,6 +1,7 @@
 ---
 name: last30days-cards
 description: 把 last30days 的调研报告渲染成卡片式输出或 PNG 信息图——每个主题单独成卡，只留结论、互动量、关键引述和链接，也能出带时间轴的图。当用户说"用卡片给我""按主题整理 last30days 结果""整点图片""来张图"时使用；也可独立调用。
+version: "0.1.0"
 license: MIT
 upstream:
   name: last30days
