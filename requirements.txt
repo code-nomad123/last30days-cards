@@ -1,0 +1,2 @@
+# 出图（cardimg.py）才需要；纯文字模式 cards.py 只用标准库
+pillow>=9.0
