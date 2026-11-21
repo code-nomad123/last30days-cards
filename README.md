@@ -62,7 +62,7 @@
 需要 **Python 3.10+**。
 
 ```bash
-git clone https://github.com/<your-name>/last30days-cards.git
+git clone https://github.com/code-nomad123/last30days-cards.git
 cd last30days-cards
 ```
 
