@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import html
 import io
 import json
 import os
@@ -69,6 +70,8 @@ CHAR_FIX = {
 def clean_text(s: str) -> str:
     if not s:
         return ""
+    # YouTube 字幕里常有 &gt;&gt;、&amp; 之类原始实体，先解码再处理字形
+    s = html.unescape(s)
     out = []
     for ch in s:
         if ch in CHAR_FIX:

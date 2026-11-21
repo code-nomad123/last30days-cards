@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import re
 import sys
@@ -27,7 +28,9 @@ from common import source_name
 
 def clip(text: str | None, limit: int = 110) -> str:
     """压平空白并截断——卡片里不做整段搬运。"""
-    t = re.sub(r"\s+", " ", (text or "")).strip()
+    # 先解码 HTML 实体（YouTube 字幕里的 &gt;&gt; 之类）
+    t = html.unescape(text or "")
+    t = re.sub(r"\s+", " ", t).strip()
     return t if len(t) <= limit else t[:limit].rstrip() + "…"
 
 
