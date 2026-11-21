@@ -153,9 +153,9 @@ GitHub 头像一般直连就行。没配代理时这些图会静默失败（`fet
 代理通过环境变量配置，`cardimg.py` 按这个顺序读：
 
 ```bash
-export LAST30DAYS_CARDS_PROXY=http://127.0.0.1:7897   # 专用，优先级最高
-export HTTPS_PROXY=http://127.0.0.1:7897
-export HTTP_PROXY=http://127.0.0.1:7897
+export LAST30DAYS_CARDS_PROXY=http://127.0.0.1:8080   # 专用，替换成你的代理地址
+export HTTPS_PROXY=http://127.0.0.1:8080
+export HTTP_PROXY=http://127.0.0.1:8080
 ```
 
 图片缓存在 `~/.cache/last30days-cards/img`（SHA256 前 20 位命名），
@@ -197,9 +197,9 @@ python hn_to_report.py --days 3 --top 5 --no-images      # 不抓 og:image，快
 ### `reddit_to_report.py` — Reddit 存档
 
 ```bash
-python reddit_to_report.py --sub wallstreetbets --sub investing \
+python reddit_to_report.py --sub technology --sub programming \
   --after 2026-11-13 --before 2026-11-21 \
-  --keyword anthropic --keyword ipo --top 22 --pages 8
+  --keyword release --keyword launch --top 22 --pages 8
 ```
 
 参数：`--sub`（可重复）、`--after`/`--before`（必填）、`--keyword`（可重复，标题子串）、
@@ -216,7 +216,7 @@ python reddit_to_report.py --sub wallstreetbets --sub investing \
 python merge_reports.py \
   --report ~/.config/last30days/last-report.json \
   --report /tmp/reddit_report.json \
-  --out /tmp/merged.json --topic "Anthropic IPO · 全网视角"
+  --out /tmp/merged.json --topic "示例话题 · 全网视角"
 ```
 
 `--out` 不传则写临时目录。`load()` 会给各份报告的 ID 加前缀（`m0_` / `m1_`）避免撞车。

@@ -146,9 +146,9 @@ python scripts/cardimg.py <report.json> -o clean.png --min-score 50
 YouTube 封面和 Reddit 缩略图在很多网络环境下需要代理。按以下顺序读取，都没设就走直连：
 
 ```bash
-export LAST30DAYS_CARDS_PROXY=http://127.0.0.1:7897   # 优先级最高
-export HTTPS_PROXY=http://127.0.0.1:7897
-export HTTP_PROXY=http://127.0.0.1:7897
+export LAST30DAYS_CARDS_PROXY=http://127.0.0.1:8080   # 专用，替换成你的代理地址
+export HTTPS_PROXY=http://127.0.0.1:8080
+export HTTP_PROXY=http://127.0.0.1:8080
 ```
 
 没配代理时图片静默失败——卡片退回纯文字，**不报错不中断**。图片缓存在 `~/.cache/last30days-cards/img`（SHA256 前 20 位命名），二次渲染直接命中缓存。
@@ -159,7 +159,7 @@ export HTTP_PROXY=http://127.0.0.1:7897
 python scripts/merge_reports.py \
   --report ~/.config/last30days/last-report.json \
   --report /tmp/reddit_report.json \
-  --out /tmp/merged.json --topic "Anthropic IPO · 全网视角"
+  --out /tmp/merged.json --topic "示例话题 · 全网视角"
 ```
 
 | 参数 | 说明 |
@@ -189,9 +189,9 @@ python scripts/hn_to_report.py --days 30 --min-points 300 --top 20 --out hn.json
 ### Reddit 数据源
 
 ```bash
-python scripts/reddit_to_report.py --sub wallstreetbets --sub investing \
+python scripts/reddit_to_report.py --sub technology --sub programming \
   --after 2026-11-13 --before 2026-11-21 \
-  --keyword anthropic --keyword ipo --top 22 --pages 8
+  --keyword release --keyword launch --top 22 --pages 8
 ```
 
 | 参数 | 说明 |

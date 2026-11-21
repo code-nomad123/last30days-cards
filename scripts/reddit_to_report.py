@@ -4,8 +4,8 @@ Reddit 官方 JSON 在本网络不可达（直连超时 / 代理 403），
 改用 arctic-shift.photon-reddit.com 存档 API，直连可用。
 
 用法示例：
-  python reddit_to_report.py --sub wallstreetbets --sub investing ^
-      --after 2026-11-13 --before 2026-11-21 --keyword anthropic --min-score 100
+  python reddit_to_report.py --sub technology --sub programming ^
+      --after 2026-11-13 --before 2026-11-21 --keyword release --min-score 100
 """
 import argparse
 import json

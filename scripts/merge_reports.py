@@ -1,10 +1,10 @@
 """把多份 report JSON 合并成一份，让 cardimg 一次性出图。
 
-典型用法：把 last30days 的调研结果和 Reddit 存档抓取结果拼在一张图上，
-这样 YouTube / HN / r/wallstreetbets / r/investing 四个来源同框。
+典型用法：把 last30days 的调研结果和其他来源的抓取结果拼在一张图上，
+让 YouTube / HN / Reddit 等多个来源同框。
 
   python merge_reports.py --report a.json --report b.json --out merged.json ^
-      --topic "Anthropic IPO · 全网视角"
+      --topic "示例话题 · 全网视角"
 
 注意：各家分数口径不同（YouTube/HN 是引擎综合分，Reddit 是点赞数），
 合并后只保证时间轴一致，徽章数字不可跨源比较。
